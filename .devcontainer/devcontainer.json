@@ -4,7 +4,10 @@
 	"build": {"dockerfile": "Dockerfile"},
 	"customizations": {
 		"vscode": {
-		  "extensions": ["dbaeumer.vscode-eslint"]
+		  "extensions": [
+			"dbaeumer.vscode-eslint",
+			"Orta.vscode-jest"
+		]
 		}
 	  },	
 	// Use 'forwardPorts' to make a list of ports inside the container available locally.
