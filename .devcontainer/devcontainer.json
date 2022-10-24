@@ -6,7 +6,8 @@
 		"vscode": {
 		  "extensions": [
 			"dbaeumer.vscode-eslint",
-			"Orta.vscode-jest"
+			"Orta.vscode-jest",
+			"kakumei.ts-debug"
 		]
 		}
 	  },	
