@@ -5,8 +5,7 @@
 	"customizations": {
 		"vscode": {
 		  "extensions": [
-			"dbaeumer.vscode-eslint",
-			"Orta.vscode-jest",
+			"dbaeumer.vscode-eslint",			
 			"kakumei.ts-debug"
 		]
 		}
