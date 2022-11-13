@@ -5,8 +5,10 @@ import { BasePerson,Person } from "./person.interface"
 export const peopleRouter = express.Router();
 
 peopleRouter.get("/",async(req: Request,res:Response) => {
+    console.log("Called Route to get All People")
     try{
         const items: Person[] = await PeopleService.findAll();
+        console.log("Called Route to get All People")
         res.status(200).send(items)
     } catch(e) {
         res.status(500).send(e instanceof Error ? e.message : "Unknown error.")
@@ -14,10 +16,10 @@ peopleRouter.get("/",async(req: Request,res:Response) => {
 });
 peopleRouter.get("/:id", async (req: Request, res: Response) => {
     const id: number = parseInt(req.params.id, 10);
-  
+    console.log(`Called Route to get ${id}`)
     try {
       const item: Person = await PeopleService.find(id);
-  
+      
       if (item) {
         return res.status(200).send(item);
       }
@@ -69,7 +71,7 @@ peopleRouter.get("/:id", async (req: Request, res: Response) => {
     try {
       const id: number = parseInt(req.params.id, 10);
       await PeopleService.remove(id);
-  
+      console.log(`Deleted Person with ${id}`)
       res.sendStatus(204);
     } catch (e) {
         res.status(500).send(e instanceof Error ? e.message : "Unknown error.")
