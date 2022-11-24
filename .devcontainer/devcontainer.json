@@ -1,15 +1,19 @@
 // For format details, see https://aka.ms/devcontainer.json. For config options, see the README at:
 // https://github.com/microsoft/vscode-dev-containers/tree/v0.245.2/containers/alpine
 {
+	"name": "Azure Functions & Node.js",
 	"build": {"dockerfile": "Dockerfile"},
 	"customizations": {
 		"vscode": {
 		  "extensions": [
-			"dbaeumer.vscode-eslint",			
-			"kakumei.ts-debug"
+			"dbaeumer.vscode-eslint",
+			"kakumei.ts-debug",
+			"ms-azuretools.vscode-azurefunctions"
 		]
 		}
 	  },	
 	// Use 'forwardPorts' to make a list of ports inside the container available locally.
-	 "forwardPorts": [3000]
+	 "forwardPorts": [3000,7071],
+	 "postStartCommand": "npm install -g @azure/static-web-apps-cli"
+
 }
