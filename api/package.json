@@ -6,7 +6,8 @@
     "build": "tsc",
     "watch": "tsc -w",
     "prestart": "npm run build",
-    "start": "func start",
+    "start:host": "func start --javascript",
+    "start": "npm-run-all --parallel start:host watch",
     "test": "echo \"No tests yet...\""
   },
   "dependencies": {},
