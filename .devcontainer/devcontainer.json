@@ -1,19 +1,34 @@
-// For format details, see https://aka.ms/devcontainer.json. For config options, see the README at:
-// https://github.com/microsoft/vscode-dev-containers/tree/v0.245.2/containers/alpine
 {
-	"name": "Azure Functions & Node.js",
-	"build": {"dockerfile": "Dockerfile"},
-	"customizations": {
-		"vscode": {
-		  "extensions": [
-			"dbaeumer.vscode-eslint",
-			"kakumei.ts-debug",
-			"ms-azuretools.vscode-azurefunctions"
-		]
+	"name": "Azure Static Web Apps",
+	"build": {
+		"dockerfile": "Dockerfile",
+		"args": {
+			// Please look at runtime version support to make sure you're using compatible versions
+			// https://docs.microsoft.com/en-us/azure/azure-functions/supported-languages#languages-by-runtime-version
+			"NODE_VERSION": "16",
+			"CORE_TOOLS_VERSION": "4"
 		}
-	  },	
-	// Use 'forwardPorts' to make a list of ports inside the container available locally.
-	 "forwardPorts": [3000,7071],
-	 "postStartCommand": "npm install -g @azure/static-web-apps-cli"
+	},
+	"forwardPorts": [ 7071, 4280 ],
 
+	// Configure tool-specific properties.
+	"customizations": {
+		// Configure properties specific to VS Code.
+		"vscode": {
+			// Add the IDs of extensions you want installed when the container is created.
+			"extensions": [
+				"ms-azuretools.vscode-azurefunctions",
+				"ms-azuretools.vscode-azurestaticwebapps",
+				"ms-dotnettools.csharp",
+				"ms-python.python",
+				"dbaeumer.vscode-eslint"
+			]
+		}
+	},
+
+	// Use 'postCreateCommand' to run commands after the container is created.
+	// "postCreateCommand": "node --version",
+
+	// Set `remoteUser` to `root` to connect as root instead. More info: https://aka.ms/vscode-remote/containers/non-root.
+	"remoteUser": "vscode"
 }
